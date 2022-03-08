@@ -19,7 +19,7 @@ for r in range(1, sheet.nrows):
     apellido1 = sheet.cell(r,2).value
     apellido2 = sheet.cell(r,3).value
     tc = sheet.cell(r,4).value
-    fch_con = sheet.cell(r,5).value
+    fch_con = xlrd.xldate_as_datetime(sheet.cell(r,5).value, book.datemode)
     monto = sheet.cell(r,6).value
     saldo = sheet.cell(r,7).value
 
