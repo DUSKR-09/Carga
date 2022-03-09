@@ -12,7 +12,7 @@ connection = pymysql.connect(host='localhost',
 cursor = connection.cursor()
 query = """INSERT INTO movimientos (codigo, nombre, apellido1, apellido2, tcNum, fchCon, monto, saldo) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"""
 
-
+print("Espere mientras se realiza la carga")
 for r in range(1, sheet.nrows):
     codigo   = sheet.cell(r,0).value
     nombre   = sheet.cell(r,1).value
@@ -24,7 +24,7 @@ for r in range(1, sheet.nrows):
     saldo = sheet.cell(r,7).value
     values = codigo, nombre, apellido1, apellido2, numTarjeta, fchCon, monto, saldo
     cursor.execute(query, values)
-
+print("Carga de datos completada");
 connection.commit()
 cursor.close()
 connection.close()
